@@ -73,7 +73,7 @@ RUN pip3 install uv && \
     python -c "import os; from faster_whisper import WhisperModel; WhisperModel(os.environ['WHISPER_MODEL'], device='cpu', compute_type='int8', download_root=os.environ['WHISPER_MODEL_DIR'])"
 
 # Copy built frontend files
-COPY --from=build /app/dist /app/dist
+COPY --from=build /app/build /app/build
 COPY --from=build /app/CHANGELOG.md /app/CHANGELOG.md
 COPY --from=build /app/package.json /app/package.json
 
